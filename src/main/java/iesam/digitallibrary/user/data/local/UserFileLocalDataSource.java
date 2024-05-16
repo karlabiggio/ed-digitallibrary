@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class UserFileLocalDataSource {
+public class UserFileLocalDataSource implements DataSourceRepository {
     private String nameFile = "users.txt";
 
     private Gson gson = new Gson();
@@ -27,6 +27,7 @@ public class UserFileLocalDataSource {
         models.add(model);
         saveToFile(models);
     }
+
 
     public void saveList(List<User> models) {
         saveToFile(models);
