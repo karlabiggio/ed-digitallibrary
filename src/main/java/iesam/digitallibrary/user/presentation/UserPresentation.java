@@ -11,6 +11,30 @@ import java.util.Scanner;
 
 public class UserPresentation {
     static Scanner sc = new Scanner(System.in);
+    public static void userMenu() {
+        int select=-1;
+        while(select!=0) {
+            System.out.println("------------------------------------------------");
+            System.out.println("---------------MENÚ DE USUARIO------------------");
+            System.out.println("------------------------------------------------");
+            System.out.println("\t [1] Registrar Usuario");
+            System.out.println("\t [2] Actualizar Usuario");
+            System.out.println("\t [3] Eliminar Usuario");
+            System.out.println("\t [0] Salir");
+            System.out.println("-----------------------------------------------");
+            select = sc.nextInt();
+            switch (select) {
+                case 0:
+                    break;
+                case 1:
+                    newUser();
+                case 2:
+                    updateUser();
+                case 3:
+                    deleteUser();
+            }
+        }
+    }
     public static void newUser() {
         System.out.println("Introduce el ID");
         String id = sc.nextLine();
@@ -50,4 +74,5 @@ public class UserPresentation {
         UpdateUserUseCase updateUserUseCase = new UpdateUserUseCase(new UserDataRepository(new UserFileLocalDataSource()));
         updateUserUseCase.execute(newUser);
     }
+
 }
